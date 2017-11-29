@@ -5,21 +5,24 @@ moduleForComponent('highlight-paragraph', 'Integration | Component | highlight p
   integration: true
 });
 
-test('it renders', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it does not highlight anything', function(assert) {
+  this.set("myParagraph", "My dog ate my interview");
+  this.set("myHighlight", "blablabla");
 
-  this.render(hbs`{{highlight-paragraph}}`);
+  this.render(hbs`{{highlight-paragraph paragraph=myParagraph highlight=myHighlight}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$('.highlighted').text().trim(), '');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#highlight-paragraph}}
-      template block text
-    {{/highlight-paragraph}}
-  `);
+});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+
+test('it Highlights properly', function(assert) {
+  this.set("myParagraph", "My dog ate my interview");
+  this.set("myHighlight", "interview");
+
+  this.render(hbs`{{highlight-paragraph paragraph=myParagraph highlight=myHighlight}}`);
+
+  assert.equal(this.$('.highlighted').text().trim(), 'interview');
+
 });

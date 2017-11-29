@@ -24,7 +24,10 @@ $ docker build -t infr .
 
 ## Tests
 
-Run `npm run test-serve`, npm test only will fail the acceptance tests and you won't have the chance of seeing the interaction. Qunit is the used test runner.
+Qunit is the used test runner.
+
+* Run `npm test` to see the CLI output.
+* Run `npm run test-serve` to see the interactive session.
 
 
 ## Notes
@@ -45,7 +48,7 @@ application (route)
 
 # Files to look
 
-  * app/temmplates/[application.hbs, index.hbs]: they are the templates that back the routes
+  * app/templates/[application.hbs, index.hbs]: they are the templates that back the routes
   * app/routes/index.js: where the "model" is fetched,
   * app/components/[highlight-article|highlight-paragraph].js
   * app/templates/components/[highlight-article|highlight-paragraph].hbs
@@ -57,7 +60,7 @@ application (route)
     * app.scss
     * default.scss
 
-  * tests/
+  * tests/integration/components/[highlight-article-test|highlight-paragraph-test].js: here you can find the integration tests for the components.
 
 
 ## Browser support

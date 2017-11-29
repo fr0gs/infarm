@@ -12,14 +12,8 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{highlight-article}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  // So the header is rendered.
+  assert.equal(this.$('.article__id').text().trim(), 'Id:');
+  assert.equal(this.$('.article__title').text().trim(), 'Title:');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#highlight-article}}
-      template block text
-    {{/highlight-article}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
