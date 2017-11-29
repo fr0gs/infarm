@@ -10,9 +10,10 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
+    "build": "node_modules/ember-cli/bin/ember build",
+    "start": "node_modules/ember-cli/bin/ember server",
+    "test": "node_modules/ember-cli/bin/ember test",
+    "test-serve": "node_modules/ember-cli/bin/ember test --server"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

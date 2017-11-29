@@ -5,21 +5,21 @@
 If you have installed the programs in the list:
 
 * `git clone <repository-url>` this repository
-* `cd comment-mentions`
-* `npm install`
+* `cd infr`
+* `npm install` or `yarn`
 * `bower install`
 
 Alternatively, if you have docker installed and don't want to install npm, bower & ember I created a docker image:
 
 ```
-$ docker build -t comment-mentions .
+$ docker build -t infr .
 ```
 
 ## Running / Development
 
 * To run locally type `npm start` and visit `http://localhost:4200`
 * To run the docker image:
-  * `sh ./run.sh`. (If it does not run please check the name of the built image is **comment-mentions**)
+  * `sh ./run.sh`. (If it does not run please check the name of the built image is **infr**)
   * visit `http://localhost`
 
 ## Tests
