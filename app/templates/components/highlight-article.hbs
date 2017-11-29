@@ -3,9 +3,7 @@
   <span class="article__title">Title: </span> {{article.title}}
 </div>
 
-<div class="row">
-  {{#each article.paragraphs as |paragraph|}}
-    {{!-- We pass to each paragraph the given paragraph and the text that must be highlighted --}}
-    {{highlight-paragraph paragraph=paragraph highlight=highlightText}}
-  {{/each}}
-</div>
+{{#each article.paragraphs as |paragraph|}}
+  {{!-- We pass to each paragraph the given paragraph and the text that must be highlighted --}}
+  {{highlight-paragraph paragraph=paragraph highlight=highlightText}}
+{{/each}}

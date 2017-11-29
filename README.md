@@ -32,7 +32,12 @@ Qunit is the used test runner.
 
 ## Notes
 
-Most of the important things are already commented in the code, I will just specify the files it is worth to look to get a sense of the application.
+
+* I have created to variants of the same scenario. The first one is tailor-made, where I assume data comes from an API and
+I perform the highlighting by substituting the html with a higher, blue font. The second one is using an existing ember library
+that wraps around the **highlight.js** jQuery library and allows you to simply paste the text to highlight. 
+
+* Most of the important things are already commented in the code, I will just specify the files it is worth to look to get a sense of the application.
 Even with no prior experience with ember, most of the logic is quite easy to follow. The structural hierarchy of components is like this:
 
 ```
