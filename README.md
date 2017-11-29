@@ -26,48 +26,38 @@ $ docker build -t infr .
 
 Run `npm run test-serve`, npm test only will fail the acceptance tests and you won't have the chance of seeing the interaction. Qunit is the used test runner.
 
-## Considerations
-
-### Pros
-
-* I picked Ember as the framework of choice since it maximizes developer's productivity once you are acquainted with the frameworks' specifics. I could have used plain js + jQuery but I am much faster with Ember.
-* Extensive browser support.
-* Almost one addon for every piece of functionality, very easy to extend with new components.
-
-### Cons
-
-* Resulting javascript size is quite big, it is an overwill for a small project.
-* There is not always an addon that does what you want, sometimes I you neet to hack around.
 
 ## Notes
 
-* In order to mock the users API ember allows to generate a small express application locally, but I chose to use `ember-cli-mirage` since it is supposed to be as production-like as possible, with a small delay to fake network latency.
-* I preferred to use the convention of preprending a `@` before looking for user matches, either by name or by username, otherwise even with a debounce the frontend would be querying the backend for user matches every time the user writes.
-* Per each mention the whole users list is fetched from the backend and filtered on the client side. This is very bad if the list is huge, and bad in general. Ideally the call would be a query to an ElasticSearch or Solr instance and the already filtered set of users would be retrieved.
+Most of the important things are already commented in the code, I will just specify the files it is worth to look to get a sense of the application.
+Even with no prior experience with ember, most of the logic is quite easy to follow. The structural hierarchy of components is like this:
 
-## Files to look
+```
+application (route)
+  index (route)
+    highlight-article (component)
+      highlight-paragraph (component)
+      highlight-paragraph (component)
+      highlight-paragraph (component)
+    .. another highlight-article, etc..
 
-Even with no prior experience with ember, most of the logic is in the **comment-mentions** component.
+```
 
-  * app/mixins/resize-textarea.js: mixin to automatically resize comment textarea to fit the text.
+# Files to look
 
-  * app/templates/application.hbs: main template that renders a navbar & `comment-mentions` component.
+  * app/temmplates/[application.hbs, index.hbs]: they are the templates that back the routes
+  * app/routes/index.js: where the "model" is fetched,
+  * app/components/[highlight-article|highlight-paragraph].js
+  * app/templates/components/[highlight-article|highlight-paragraph].hbs
+  * app/router.js : to see the mapping of the URLS, I added some comments.
 
-  * app/components/comment-mentions.js & app/templates/components/comment-mentions.hbs: logic & markup for the main `comment-mentions` component.
+  * app/helpers/cond-highlight.js : the helper that highlights the content.
 
   * app/styles/:
     * app.scss
     * default.scss
 
-  * mirage/
-    * fixtures/users.js: the list of users
-    * models/user.js: the fake model describing user attributes.
-    * scenarios/default.js: will load the fixtures into memory.
-    * config.js: configuration fake endpoint.
-
   * tests/
-    * acceptance/users-list-test.js: real world interaction with the component.
-    * integration/components/comment-mentions.js: rendering of the component
 
 
 ## Browser support
