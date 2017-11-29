@@ -1,0 +1,11 @@
+<div class="article__header row">
+  <span>Id: </span> {{article.id}}
+  <span>Title: </span> {{article.title}}
+</div>
+
+<div class="row">
+  {{#each article.paragraphs as |paragraph|}}
+    {{!-- We pass to each paragraph the given paragraph and the text that must be highlighted --}}
+    {{highlight-paragraph paragraph=paragraph highlight=highlightText}}
+  {{/each}}
+</div>

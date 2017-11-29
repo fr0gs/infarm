@@ -1,0 +1,11 @@
+{{!-- This is the index route template, backing the index.js route and receiving the
+previously fetched model. If no controller is specified, the template (view)
+receives the data as is. --}}
+
+{{!--
+Assuming that we might receive a list of articles, we render an article Component
+per each one passing the article data as a parameter.
+--}}
+{{#each model as |article|}}
+  {{highlight-article article=article}}
+{{/each}}

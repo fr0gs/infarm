@@ -1,0 +1,9 @@
+{{!-- We just call the helper "cond-highlight" with two parameters: the paragraph
+and the text to highlight if it is there. A helper in handlebars is a function
+that can be used declaratively in your templates to transform data, instead of
+performing that logic in the controller.
+Good thing is that you can perform complex logic in the views in a declarative
+way by nesting self-made or libraries' helpers.
+Bad thing is that you are moving logic to the view, while it is supposed to be
+just a lightweight presentation layer of your data. --}}
+<p>{{cond-highlight paragraph highlight}}</p>

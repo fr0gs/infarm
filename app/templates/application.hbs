@@ -1,5 +1,17 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#md-navbar name='InFarm Subliminal Hire me app :P' homeRoute='index'}}{{/md-navbar}}
 
-{{outlet}}
+{{!-- This is the application route. Ideally is the highest level "component" if you may
+that encompasses all the internal ones. --}}
+
+<div class="index">
+    <div class="container">
+        <h3>Highlighting Paragraphs example</h3>
+    </div>
+
+    {{!-- Outlet is a template helper that can be understood as "render here
+    the correspondent route+template, depending on the url". Just like
+    any other javascript routing solution. Check router.js to see the mapping. --}}
+    <div class="container">
+      {{outlet}}
+    </div>
+</div>
